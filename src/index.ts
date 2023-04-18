@@ -1,16 +1,11 @@
 import { Hono } from "hono";
-import { serveStatic } from 'hono/serve-static.bun';
+import {Ember,Connect,REPO} from "./db" 
 
-const port = parseInt(process.env.PORT) || 3000;
+const port = 3000;
 
 const app = new Hono();
 
-app.use('/favicon.ico', serveStatic({ path: './public/favicon.ico' }));
-
-app.get("/", (c) => {
-  return c.json({ message: "Hello World!" });
-});
-
+app.get("/",async(c)=>{return c.json(await new REPO().readall())});
 console.log(`Running at http://localhost:${port}`);
 
 export default {

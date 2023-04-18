@@ -2,10 +2,12 @@
   "version": "1.0.89",
   "name": "hono",
   "devDependencies": {
+    "@types/mysql": "^2.15.21",
     "bun-types": "latest"
   },
   "dependencies": {
-    "hono": "^2.2.5"
+    "hono": "^2.2.5",
+    "mysql2": "^3.2.3"
   },
   "scripts": {
     "start": "bun run src/index.ts"
